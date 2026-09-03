@@ -88,6 +88,17 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
+        const Chatbot = {
+          getResponse(inputText) {
+            const message = inputText.toLowerCase();
+
+            if (message === 'hello' || message === 'hi') {
+                return 'Hello! How can I help you?';
+            }
+
+            return 'Sorry, I do not understand that.';
+          }
+        };
         function ChatInput( { chatMessages, setChatMessages}){
             const [inputText, setInputText] =  React.useState('');
 
@@ -96,6 +107,9 @@
             }
 
             function sendMessage() {
+            if (inputText.trim() === '') {
+              return;
+            }
             const newChatMessages = [
                 ...chatMessages,
                 {
@@ -128,6 +142,10 @@
                     size="40"
                     onChange={saveInputText}
                     value={inputText}
+                    onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                        sendMessage();
+                    }}}
                 />
                 <button 
                     className = "send-button"
