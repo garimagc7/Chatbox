@@ -7,19 +7,23 @@ function App() {
     const [chatMessages, setChatMessages] = useState([{
     message: 'hello chatbot',
     sender: 'user',
-    id: 'id1'
+    id: 'id1',
+    time: new Date()
     }, {
     message: 'Hello! How can I help you?',
     sender: 'robot',
-    id: 'id2'
+    id: 'id2',
+    time: new Date()
     }, {
     message: 'can you get me todays date?',
     sender: 'user',
-    id: 'id3'
+    id: 'id3',
+    time: new Date()
     }, {
     message: 'Today is September 27',
     sender: 'robot',
-    id: 'id4'
+    id: 'id4',
+    time: new Date()
     }]);
 
 return (

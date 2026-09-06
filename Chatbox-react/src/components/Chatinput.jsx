@@ -27,7 +27,8 @@ export function ChatInput( { chatMessages, setChatMessages}){
         {
         message: inputText,
         sender: 'user',
-        id: crypto.randomUUID()
+        id: crypto.randomUUID(),
+        time: new Date()
         }
     ];
 
@@ -39,7 +40,8 @@ export function ChatInput( { chatMessages, setChatMessages}){
         {
         message: response,
         sender: 'robot',
-        id: crypto.randomUUID()
+        id: crypto.randomUUID(),
+        time: new Date()
         }
     ]);
 
