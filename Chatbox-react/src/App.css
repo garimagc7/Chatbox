@@ -73,3 +73,14 @@
   opacity: 0.6;
   text-align: right;
 }
+
+.clear-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 12px 12px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+}

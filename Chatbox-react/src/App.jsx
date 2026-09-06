@@ -26,16 +26,28 @@ function App() {
     time: new Date()
     }]);
 
-return (
-  <div className = "app-container">
-    <ChatMessages
-      chatMessages={chatMessages}
-    />
-    <ChatInput
-      chatMessages={chatMessages}
-      setChatMessages={setChatMessages}
-    />
-  </div>
-);
+    function clearChat() {
+    setChatMessages([
+        {
+            message: 'Hello! How can I help you?',
+            sender: 'robot',
+            id: crypto.randomUUID(),
+            time: new Date()
+        }
+    ]);
+    }
+
+    return (
+      <div className = "app-container">
+        <ChatMessages
+          chatMessages={chatMessages}
+        />
+        <ChatInput
+          chatMessages={chatMessages}
+          setChatMessages={setChatMessages}
+          clearChat = { clearChat }
+        />
+      </div>
+    );
 }
 export default App

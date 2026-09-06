@@ -11,7 +11,8 @@ const Chatbot = {
     return 'Sorry, I do not understand that.';
   }
 }; 
-export function ChatInput( { chatMessages, setChatMessages}){
+
+export function ChatInput( { chatMessages, setChatMessages, clearChat}){
     const [inputText, setInputText] =  useState('');
 
     function saveInputText(event) {
@@ -65,6 +66,11 @@ export function ChatInput( { chatMessages, setChatMessages}){
             className = "send-button"
             onClick={sendMessage}
         >Send</button>
+        <button 
+            className="clear-button"
+            onClick={clearChat}>
+            Clear Chat
+        </button>
         </div>
     );    
 }
