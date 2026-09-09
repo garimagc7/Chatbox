@@ -84,3 +84,9 @@
   font-size: 15px;
   cursor: pointer;
 }
+.typing-indicator {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}

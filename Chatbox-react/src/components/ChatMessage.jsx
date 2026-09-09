@@ -5,8 +5,9 @@ export function ChatMessage({message, sender, time}){
     return(
         <div className = {sender === 'user'? 'chat-message-user' : 'chat-message-robot'    
         }>
-            {sender == "robot" && (
-                <img src={ RobotProfileImage} width="50"
+            {sender === "robot" && (
+                <img src={ RobotProfileImage} 
+                width="50"
                 className = "chat-message-profile"/>
             )}
             <div className="chat-message-text">
@@ -21,8 +22,10 @@ export function ChatMessage({message, sender, time}){
                 })}
                 </div>
             </div>
-            {sender == "user" && (
-                <img src={ UserProfileImage} width="50" 
+            {sender === "user" && (
+                <img 
+                src={ UserProfileImage} 
+                width="50" 
                 className = "chat-message-profile"/>
             )}
         </div>

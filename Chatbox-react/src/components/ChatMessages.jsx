@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { ChatMessage } from './ChatMessage'
 
-export function ChatMessages({ chatMessages }) {
+export function ChatMessages({ chatMessages,isTyping }) {
 
     const chatMessagesRef = useRef(null);
 
@@ -24,6 +24,11 @@ export function ChatMessages({ chatMessages }) {
                 />
             );
         })}
+        {isTyping && (
+        <div className="typing-indicator">
+          Typing...
+        </div>
+      )}
     </div>
     );
 }

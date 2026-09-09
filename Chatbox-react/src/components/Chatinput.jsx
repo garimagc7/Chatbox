@@ -47,7 +47,7 @@ const Chatbot = {
   }
 };
 
-export function ChatInput( { chatMessages, setChatMessages, clearChat}){
+export function ChatInput( { chatMessages, setChatMessages, clearChat, setIsTyping}){
     const [inputText, setInputText] =  useState('');
 
     function saveInputText(event) {
@@ -67,21 +67,24 @@ export function ChatInput( { chatMessages, setChatMessages, clearChat}){
         time: new Date()
         }
     ];
-
     setChatMessages(newChatMessages);
-
+    setInputText('');
+    setIsTyping(true);
     const response = Chatbot.getResponse(inputText);
-    setChatMessages([
+
+    setTimeout(() => {
+        setChatMessages([
         ...newChatMessages,
         {
-        message: response,
-        sender: 'robot',
-        id: crypto.randomUUID(),
-        time: new Date()
+            message: response,
+            sender: 'robot',
+            id: crypto.randomUUID(),
+            time: new Date()
         }
-    ]);
+        ]);
 
-    setInputText('');
+        setIsTyping(false);
+    }, 1000);
     }
 
     return(
