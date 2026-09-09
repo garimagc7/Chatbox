@@ -2,15 +2,50 @@ import { useState } from 'react'
 
 const Chatbot = {
   getResponse(inputText) {
-    const message = inputText.toLowerCase();
+    const message = inputText.toLowerCase().trim();
 
-    if (message === 'hello' || message === 'hi') {
-        return 'Hello! How can I help you?';
+    if (message === 'hello' || message === 'hi' || message === 'hey') {
+      return 'Hello! How can I help you?';
     }
 
-    return 'Sorry, I do not understand that.';
+    if (message.includes('how are you')) {
+      return 'I am doing great! Thanks for asking.';
+    }
+
+    if (message.includes('your name')) {
+      return 'I am your React chatbot.';
+    }
+
+    if (
+      message.includes('date') ||
+      message.includes("today's date") ||
+      message.includes('todays date')
+    ) {
+      return `Today is ${new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })}.`;
+    }
+
+    if (message.includes('time')) {
+      return `The current time is ${new Date().toLocaleTimeString([], {
+        hour: 'numeric',
+        minute: '2-digit'
+      })}.`;
+    }
+
+    if (message.includes('thank')) {
+      return "You're welcome!";
+    }
+
+    if (message.includes('bye')) {
+      return 'Goodbye! Have a great day!';
+    }
+
+    return "Sorry, I don't understand that yet.";
   }
-}; 
+};
 
 export function ChatInput( { chatMessages, setChatMessages, clearChat}){
     const [inputText, setInputText] =  useState('');
