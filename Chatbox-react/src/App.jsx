@@ -13,7 +13,6 @@ function App() {
       time: new Date(message.time)
     }));
   }
-
   return [
     {
       message: 'Hello! How can I help you?',
@@ -23,6 +22,7 @@ function App() {
     }
   ];
   });
+  const [darkMode, setDarkMode] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
@@ -44,19 +44,29 @@ function App() {
   ]);
   }
 
-  return (
-    <div className = "app-container">
-      <ChatMessages
-        chatMessages={chatMessages}
-        isTyping = {isTyping}
-      />
-      <ChatInput
-        chatMessages={chatMessages}
-        setChatMessages={setChatMessages}
-        clearChat = { clearChat }
-        setIsTyping = {setIsTyping}
-      />
-    </div>
-  );
+return (
+  <div className={darkMode ? "app-container dark-mode" : "app-container"}>
+
+    <button
+      className="dark-mode-button"
+      onClick={() => setDarkMode(!darkMode)}
+    >
+      {darkMode ? 'Light Mode' : 'Dark Mode'}
+    </button>
+
+    <ChatMessages
+      chatMessages={chatMessages}
+      isTyping={isTyping}
+    />
+
+    <ChatInput
+      chatMessages={chatMessages}
+      setChatMessages={setChatMessages}
+      clearChat={clearChat}
+      setIsTyping={setIsTyping}
+    />
+
+  </div>
+);
 }
 export default App
