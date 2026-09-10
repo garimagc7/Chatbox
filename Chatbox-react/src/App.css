@@ -90,8 +90,11 @@
   margin-bottom: 20px;
 }
 
-
 .app-container.dark-mode {
   background-color: #181818;
   color: rgb(20, 15, 15);
+}
+
+.dark-mode .typing-indicator{
+  color: white;
 }
